@@ -1,15 +1,27 @@
-import prisma from "@repo/db/client";
+"use client";
+import { signIn, signOut, useSession } from "next-auth/react";
 
-const getData = async () => {
-	const res = await prisma.user.findMany({});
+export default function Home() {
+	const session = useSession();
 
-	return res;
-};
+	console.log(session);
 
-export default async function Home() {
-	const data = await getData();
+	// if (session.data?.user)
+	// 	return (
+	// 		<div>
+	// 			<p>signed in as {session.data.user.email}</p>
+	// 			<button onClick={() => signOut()}>Sign out</button>
+	// 			<p>{JSON.stringify(session.data.user)}</p>
+	// 		</div>
+	// 	);
 
-	console.log(data);
+	return (
+		<div className="font-bold text-4xl bg-red-200">
+			{/* <p>Not signed in</p> */}
+			<button onClick={() => signIn()}>Sign in</button>
+			<button onClick={() => signOut()}>Sign out</button>
 
-	return <div className="font-bold text-4xl bg-red-200">hello</div>;
+			{JSON.stringify(session)}
+		</div>
+	);
 }
