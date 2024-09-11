@@ -12,6 +12,7 @@
 		"@repo/db": "*",
 		"@repo/ui": "*",
 		"@repo/zod": "*",
+		"@repo/next-auth-types": "*",
 		"@types/bcrypt": "^5.0.2",
 		"bcrypt": "^5.1.1",
 		"next": "14.2.6",

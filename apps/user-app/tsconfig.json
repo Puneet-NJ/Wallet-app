@@ -1,18 +1,26 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
-  "compilerOptions": {
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
-  },
-  "include": [
-    "next-env.d.ts",
-    "next.config.mjs",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": ["node_modules"]
+	"extends": "@repo/typescript-config/nextjs.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"paths": {
+			"@types/*": ["../../packages/next-auth-types/*"],
+			"@/*": ["./app/*"]
+		},
+		"typeRoots": ["../../packages/next-auth-types"],
+		"types": ["@repo/next-auth-types"]
+	},
+	"include": [
+		"../../packages/next-auth-types/**/*.d.ts",
+		"next-env.d.ts",
+		"next.config.mjs",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts"
+	],
+	"exclude": ["node_modules"]
 }

@@ -1,22 +1,19 @@
 "use client";
+import { Appbar } from "@repo/ui/appbar";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Home() {
 	const session = useSession();
 
-	console.log(session);
-
-	// if (session.data?.user)
-	// 	return (
-	// 		<div>
-	// 			<p>signed in as {session.data.user.email}</p>
-	// 			<button onClick={() => signOut()}>Sign out</button>
-	// 			<p>{JSON.stringify(session.data.user)}</p>
-	// 		</div>
-	// 	);
+	console.log(session.data?.user);
 
 	return (
-		<div className="font-bold text-4xl bg-red-200">
+		<div className=" bg-red-200">
+			<Appbar
+				user={session?.data?.user}
+				signIn={() => signIn()}
+				signOut={() => signOut()}
+			/>
 			{/* <p>Not signed in</p> */}
 			<button onClick={() => signIn()}>Sign in</button>
 			<button onClick={() => signOut()}>Sign out</button>
