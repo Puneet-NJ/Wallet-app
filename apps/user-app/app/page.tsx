@@ -5,8 +5,6 @@ import { signIn, signOut, useSession } from "next-auth/react";
 export default function Home() {
 	const session = useSession();
 
-	console.log(session.data?.user);
-
 	return (
 		<div className=" bg-red-200">
 			<Appbar
@@ -14,9 +12,6 @@ export default function Home() {
 				signIn={() => signIn()}
 				signOut={() => signOut()}
 			/>
-			{/* <p>Not signed in</p> */}
-			<button onClick={() => signIn()}>Sign in</button>
-			<button onClick={() => signOut()}>Sign out</button>
 
 			{JSON.stringify(session)}
 		</div>

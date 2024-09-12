@@ -12,15 +12,13 @@ interface Props {
 }
 
 export const Appbar = ({ user, signIn, signOut }: Props) => {
-	console.log(user);
-
 	return (
-		<div className="flex justify-between items-center bg-slate-300 px-10 py-3">
+		<div className="flex justify-between items-center bg-slate-100 px-10 py-5 shadow-xl">
 			<div>
 				<Logo />
 			</div>
 
-			<Button onClick={() => (user ? signOut : signIn)}>
+			<Button onClick={() => (user ? signOut() : signIn())}>
 				{user ? "Sign out" : "Sign in"}
 			</Button>
 		</div>
