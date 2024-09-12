@@ -1,24 +1,59 @@
 "use client";
-import jwt from "jsonwebtoken";
-import { useParams, useSearchParams } from "next/navigation";
 
-export default function Home() {
+import { useSearchParams } from "next/navigation";
+import { InputBox } from "@repo/ui/input-box";
+import { Button } from "@repo/ui/button";
+import { Appbar } from "@repo/ui/appbar";
+
+export default function () {
 	const params = useSearchParams();
 	const token = params.get("token");
 
-	// Assuming you're using JWT for verification
-	// const amount = jwt.verify(token, process.env.JWT_PASSWORD || "secret")
+	// YOU SEE, I DIDN'T DO JWT.DECODE BECAUSE I WAS UNABLE EXTRACT FIELDS FROM
+	// IT DUE TO TYPE ERRORS. HENCE, I DID SIMILAR APPROACH OF DECODING IT USING
+	// atob FUNCTION
+	const handleMakePayment = (
+		e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+	) => {
+		e.preventDefault();
 
-	console.log(token); // This will log "abc"
-	console.log(params.toString()); // Log the full query string
+		const { userId, amount } = JSON.parse(atob(token?.split(".")[1] || ""));
+
+		console.log(userId + " " + amount);
+	};
 
 	return (
-		<div className="">
-			<form>
-				<h1>Net Banking App</h1>
+		<div className="flex justify-center items-center h-screen bg-gray-100">
+			<div className=" absolute top-0 w-full text-center shadow-lg border border-b-slate-300 bg-white">
+				<h1 className="text-xl font-medium py-7">
+					Welcome to WalletPe Bank NetBanking
+				</h1>
+			</div>
 
-				<p>A debit of ₹{}</p>
-				{JSON.stringify(params)}
+			<form className="w-1/5 flex flex-col gap-4 border border-slate-300 py-10 px-7 bg-white shadow-xl rounded-md">
+				<h1 className="text-2xl font-semibold text-center mb-3">
+					Net Banking App
+				</h1>
+
+				<div className="flex flex-col gap-4">
+					<InputBox
+						placeholder="Enter card number"
+						id="card"
+						type="number"
+						onChange={() => {}}
+					/>
+
+					<InputBox
+						placeholder="Enter cvv number"
+						id="CVV"
+						type="number"
+						onChange={() => {}}
+					/>
+				</div>
+
+				<div className="flex justify-center items-center mt-3 px-">
+					<Button onClick={handleMakePayment}>Make Payment</Button>
+				</div>
 			</form>
 		</div>
 	);

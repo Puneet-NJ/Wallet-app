@@ -18,9 +18,11 @@ export const Appbar = ({ user, signIn, signOut }: Props) => {
 				<Logo />
 			</div>
 
-			<Button onClick={() => (user ? signOut() : signIn())}>
-				{user ? "Sign out" : "Sign in"}
-			</Button>
+			<div>
+				<Button onClick={() => (user ? signOut() : signIn())}>
+					{user ? "Sign out" : "Sign in"}
+				</Button>
+			</div>
 		</div>
 	);
 };

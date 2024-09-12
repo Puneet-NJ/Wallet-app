@@ -31,8 +31,10 @@ export default function () {
 	};
 
 	return (
-		<div className="w-1/4 border border-gray-400 p-10 flex flex-col gap-3 shadow-xl rounded-lg">
-			<Logo />
+		<div className="bg-slate-200 w-1/5 border border-slate-300 py-10 px-7 flex flex-col gap-3 shadow-xl rounded-lg">
+			<div className="w-full mb-3">
+				<Logo />
+			</div>
 
 			<form className="flex flex-col gap-4">
 				<InputBox
@@ -53,7 +55,9 @@ export default function () {
 					}}
 				/>
 
-				<Button onClick={(e) => onClick(e)}>Access</Button>
+				<div className="mt-3 w-full">
+					<Button onClick={(e) => onClick(e)}>Access</Button>
+				</div>
 			</form>
 		</div>
 	);

@@ -7,12 +7,3 @@ export default function () {
 		</div>
 	);
 }
-
-// "use client";
-
-// import { signIn } from "next-auth/react";
-// import { useState } from "react";
-// import { useRouter } from "next/navigation";
-// import { Logo } from "@repo/ui/logo";
-// import { InputBox } from "@repo/ui/input-box";
-// import { Button } from "@repo/ui/button";
