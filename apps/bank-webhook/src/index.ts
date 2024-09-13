@@ -1,5 +1,5 @@
 import express from "express";
-import { bodySchema } from "./zod";
+import { sendMoneySchema } from "@repo/zod/client";
 import jwt from "jsonwebtoken";
 
 const app = express();
@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.post("/hdfc", (req, res) => {
 	// Input validation
-	const validateInput = bodySchema.safeParse(req.body);
+	const validateInput = sendMoneySchema.safeParse(req.body);
 	if (!validateInput.success) {
 		return res.status(411).json({ msg: "Invalid inputs" });
 	}
@@ -21,7 +21,7 @@ app.post("/hdfc", (req, res) => {
 
 app.post("/axis", (req, res) => {
 	// Input validation
-	const validateInput = bodySchema.safeParse(req.body);
+	const validateInput = sendMoneySchema.safeParse(req.body);
 	if (!validateInput.success) {
 		return res.status(411).json({ msg: "Invalid inputs" });
 	}

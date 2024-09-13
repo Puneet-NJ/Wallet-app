@@ -19,7 +19,7 @@ export default function () {
 
 		const { userId, amount } = JSON.parse(atob(token?.split(".")[1] || ""));
 
-		console.log(userId + " " + amount);
+		console.log(userId + " " + amount + " " + token);
 	};
 
 	return (
