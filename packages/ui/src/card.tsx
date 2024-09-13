@@ -1,25 +1,15 @@
-export function Card({
-  className,
-  title,
-  children,
-  href,
-}: {
-  className?: string;
-  title: string;
-  children: React.ReactNode;
-  href: string;
-}): JSX.Element {
-  return (
-    <a
-      className={className}
-      href={`${href}?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo"`}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <h2>
-        {title} <span>-&gt;</span>
-      </h2>
-      <p>{children}</p>
-    </a>
-  );
+interface Props {
+	title: string;
+	children: React.ReactNode;
+}
+
+export function Card({ title, children }: Props) {
+	return (
+		<div className="bg-white py-4 px-5 rounded shadow-md">
+			<div className="text-xl font-medium border-b border-gray-300 pb-2">
+				{title}
+			</div>
+			<div>{children}</div>
+		</div>
+	);
 }

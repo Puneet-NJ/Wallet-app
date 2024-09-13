@@ -1,4 +1,4 @@
-import zod from "zod";
+const zod = require("zod");
 
 export const userSchema = zod.object({
 	phone: zod.string().length(10),

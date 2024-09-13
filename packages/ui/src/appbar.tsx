@@ -13,7 +13,7 @@ interface Props {
 
 export const Appbar = ({ user, signIn, signOut }: Props) => {
 	return (
-		<div className="flex justify-between items-center bg-slate-100 px-10 py-5 shadow-xl">
+		<div className="flex justify-between items-center sticky top-0 px-10 py-5 shadow-lg">
 			<div>
 				<Logo />
 			</div>

@@ -20,8 +20,6 @@ export const authOptions = {
 			},
 
 			async authorize(credentials: any) {
-				console.log("reached");
-
 				const validateInput = userSchema.safeParse({
 					phone: credentials?.phone,
 					password: credentials?.password,
@@ -53,17 +51,28 @@ export const authOptions = {
 					return null;
 				}
 
-				const response = await prisma.user.create({
-					data: {
-						phone: credentials.phone,
-						password: hashedPassword,
-					},
+				const newUser = await prisma.$transaction(async (tx) => {
+					const createdUser = await tx.user.create({
+						data: {
+							phone: credentials.phone,
+							password: hashedPassword,
+						},
+					});
+
+					await tx.balance.create({
+						data: {
+							userId: createdUser.id,
+							amount: 0,
+						},
+					});
+
+					return {
+						id: createdUser.id.toString(),
+						phone: createdUser.phone,
+					};
 				});
 
-				return {
-					id: response.id.toString(),
-					phone: response.phone,
-				};
+				return newUser;
 			},
 		}),
 	],
