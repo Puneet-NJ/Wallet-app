@@ -24,7 +24,9 @@ export const SelectInput = ({ label, id, options, onChange }: Props) => {
 				className="p-2 outline-none border border-gray-400 rounded-md text-sm"
 			>
 				{options.map((option) => (
-					<option value={option.key}>{option.value}</option>
+					<option key={option.key} value={option.key}>
+						{option.value}
+					</option>
 				))}
 			</select>
 		</div>

@@ -30,7 +30,6 @@ export default function () {
 		e: React.MouseEvent<HTMLButtonElement, MouseEvent>
 	) => {
 		e.preventDefault();
-		console.log(redirectUrl + " " + amount + " " + session.data?.user.id);
 
 		if (amount < 1) {
 			alert("Amount should be greater than 0");
@@ -55,17 +54,12 @@ export default function () {
 			Number(session?.data?.user.id)
 		);
 
-		const netBanking = await axios({
-			method: "GET",
-			url: `http://localhost:3003/?token=${bankWebhook.data.token}`,
-		});
-
-		console.log(
-			netBanking +
-				" " +
-				"http://localhost:3003/?token=${bankWebhook.data.token}"
+		window.open(
+			`http://localhost:3003/?token=${bankWebhook.data.token}`,
+			"_blank"
 		);
 	};
+
 	return (
 		<Card title="Add Money">
 			<form className="flex flex-col gap-4 py-5">

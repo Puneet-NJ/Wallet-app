@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { InputBox } from "@repo/ui/input-box";
 import { Button } from "@repo/ui/button";
 import { Appbar } from "@repo/ui/appbar";
+import axios from "axios";
 
 export default function () {
 	const params = useSearchParams();
@@ -12,14 +13,29 @@ export default function () {
 	// YOU SEE, I DIDN'T DO JWT.DECODE BECAUSE I WAS UNABLE EXTRACT FIELDS FROM
 	// IT DUE TO TYPE ERRORS. HENCE, I DID SIMILAR APPROACH OF DECODING IT USING
 	// atob FUNCTION
-	const handleMakePayment = (
+	const handleMakePayment = async (
 		e: React.MouseEvent<HTMLButtonElement, MouseEvent>
 	) => {
 		e.preventDefault();
 
 		const { userId, amount } = JSON.parse(atob(token?.split(".")[1] || ""));
 
-		console.log(userId + " " + amount + " " + token);
+		const walletWebhook = await axios({
+			method: "POST",
+			url: `http://localhost:3005/`,
+			data: {
+				userId,
+				amount,
+				token,
+			},
+		});
+
+		if (walletWebhook.status === 200)
+			alert(
+				walletWebhook.data.msg + ". You can now go back to original website"
+			);
+
+		window.close();
 	};
 
 	return (

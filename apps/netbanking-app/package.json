@@ -9,12 +9,13 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@repo/ui": "*",
 		"@types/jsonwebtoken": "^9.0.6",
+		"axios": "^1.7.7",
 		"jsonwebtoken": "^9.0.2",
 		"next": "14.2.10",
 		"react": "^18",
-		"react-dom": "^18",
-		"@repo/ui": "*"
+		"react-dom": "^18"
 	},
 	"devDependencies": {
 		"@types/node": "^20",
