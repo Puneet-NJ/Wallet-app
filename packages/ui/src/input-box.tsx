@@ -32,7 +32,7 @@ export const InputBox = ({
 				}}
 				className={
 					className ||
-					"py-2 px-3 outline-none border border-gray-400 rounded-md"
+					"py-2 px-3 outline-none border border-gray-400 rounded-md text-black"
 				}
 				min={min}
 			/>

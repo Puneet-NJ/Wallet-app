@@ -20,7 +20,7 @@ export default function ({ transactions }: Props) {
 					>
 						<div>
 							<div className="font-medium">{txn.status}</div>
-							<div className="text-xs text-gray-600">
+							<div className="text-xs text-gray-500">
 								{txn.startDate.toString().split(" GMT")[0]}
 							</div>
 						</div>

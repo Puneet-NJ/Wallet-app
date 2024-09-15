@@ -17,7 +17,7 @@ export const Logo = ({ className }: { className?: string }) => {
 			<span
 				className={
 					(className ? className : "text-3xl font-extrabold ml-1") +
-					" text-blue-400"
+					" text-blue-700"
 				}
 			>
 				Pe

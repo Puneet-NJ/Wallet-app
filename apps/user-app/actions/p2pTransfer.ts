@@ -8,6 +8,11 @@ export default async function (phone: number, amount: number) {
 	const session = await getServerSession(authOptions);
 	const fromUser = session?.user.id;
 
+	if (amount < 1)
+		return {
+			msg: "Money should be greater than 0",
+		};
+
 	const receiver = await prisma.user.findFirst({
 		where: {
 			phone: String(phone),

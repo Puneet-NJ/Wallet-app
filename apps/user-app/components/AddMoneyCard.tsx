@@ -62,7 +62,7 @@ export default function () {
 
 	return (
 		<Card title="Add Money">
-			<form className="flex flex-col gap-4 py-5">
+			<form className="flex flex-col gap-4 py-5  border-">
 				<InputBox
 					placeholder="Amount"
 					id="amount"

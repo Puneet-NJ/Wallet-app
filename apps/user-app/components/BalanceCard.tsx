@@ -19,9 +19,9 @@ export default function ({
 				<span>₹0</span>
 			</div>
 
-			<div className="flex justify-between mx-5 py-3 border-b">
+			<div className="flex justify-between mx-5 py-3 border-b font-bold">
 				<span>Total Balance</span>
-				<span>₹{amount}</span>
+				<span className="text-green-500">₹{amount}</span>
 			</div>
 		</Card>
 	);

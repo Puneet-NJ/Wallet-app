@@ -21,7 +21,7 @@ export const SelectInput = ({ label, id, options, onChange }: Props) => {
 					onChange(e);
 				}}
 				id={id}
-				className="p-2 outline-none border border-gray-400 rounded-md text-sm"
+				className="p-2 outline-none border border-gray-400 rounded-md text-sm text-black"
 			>
 				{options.map((option) => (
 					<option key={option.key} value={option.key}>

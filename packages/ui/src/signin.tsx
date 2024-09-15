@@ -31,7 +31,7 @@ export default function () {
 	};
 
 	return (
-		<div className="bg-slate-200 w-1/5 border border-slate-300 py-10 px-7 flex flex-col gap-3 shadow-xl rounded-lg">
+		<div className="bg-[rgba(150,150,150,1)] w-1/5 py-10 px-7 flex flex-col gap-3 shadow-xl rounded-lg">
 			<div className="w-full mb-3">
 				<Logo />
 			</div>
@@ -49,7 +49,7 @@ export default function () {
 
 				<InputBox
 					id="password"
-					type="text"
+					type="password"
 					onChange={(e) => {
 						setPassword(e.target.value);
 					}}

@@ -30,7 +30,7 @@ export default async function () {
 						<div className="font-medium">
 							{id === transfer.toId ? "Recieved" : "Paid"}
 						</div>
-						<div className="text-xs text-gray-600">
+						<div className="text-xs text-gray-500">
 							{transfer.time.toString().split(" GMT")[0]}
 						</div>
 					</div>
