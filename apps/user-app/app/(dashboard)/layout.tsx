@@ -2,17 +2,22 @@ import SidebarElement from "components/SidebarElement";
 
 export default function ({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="flex bg-[#ebe6e6] min-h-screen max-w-screen">
-			<div className="w-1/6 h-screen flex flex-col gap-7 ml-16 pt-20 border-gray-300 border-r">
+		<div className="flex bg-black text- min-h-screen max-w-screen">
+			<div className="w-1/6 flex flex-col gap-7 ml-16 pt-20 border-gray-800 border-r">
 				<SidebarElement title="Home" icon={<HomeIcon />} to="/dashboard" />
 				<SidebarElement
 					title="Add Money"
 					icon={<AddMoneyIcon />}
 					to="/add-money"
 				/>
-				<SidebarElement
+				{/* <SidebarElement
 					title="Transfer"
 					icon={<TransferIcon />}
+					to="/transfer"
+				/> */}
+				<SidebarElement
+					title="P2P Transfer"
+					icon={<P2pTransfer />}
 					to="/transfer"
 				/>
 			</div>
@@ -69,6 +74,25 @@ function AddMoneyIcon() {
 				clipRule="evenodd"
 			/>
 			<path d="M2.25 18a.75.75 0 0 0 0 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 0 0-.75-.75H2.25Z" />
+		</svg>
+	);
+}
+
+function P2pTransfer() {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			strokeWidth={1.5}
+			stroke="currentColor"
+			className="size-6"
+		>
+			<path
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
+			/>
 		</svg>
 	);
 }

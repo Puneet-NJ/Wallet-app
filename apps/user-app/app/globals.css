@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes bounce-more {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-50px); /* Increased bounce height */
+	}
+}
+
+.animate-bounce-more {
+	animation: bounce-more 2s infinite; /* Faster bounce */
+}

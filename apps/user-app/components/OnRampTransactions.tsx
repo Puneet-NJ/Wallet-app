@@ -13,7 +13,7 @@ export default function ({ transactions }: Props) {
 	return (
 		<Card title="Recent Transactions">
 			<div>
-				{transactions.map((txn: any) => (
+				{transactions.map((txn) => (
 					<div
 						key={txn.id}
 						className="flex justify-between items-center border-b py-2 mx-5"

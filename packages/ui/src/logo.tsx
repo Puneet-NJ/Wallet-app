@@ -1,8 +1,27 @@
-export const Logo = () => {
+export const Logo = ({ className }: { className?: string }) => {
+	console.log(className);
+
 	return (
-		<div className="flex items-center mx-auto w-full justify-center">
-			<span className="text-3xl font-extrabold text-blue-900">Wallet</span>
-			<span className="text-3xl font-extrabold text-blue-400 ml-1">Pe</span>
+		<div
+			className={
+				className
+					? className
+					: `flex items-center mx-auto w-full justify-center`
+			}
+		>
+			<span
+				className={className ? className : "text-3xl font-extrabold text-white"}
+			>
+				Wallet
+			</span>
+			<span
+				className={
+					(className ? className : "text-3xl font-extrabold ml-1") +
+					" text-blue-400"
+				}
+			>
+				Pe
+			</span>
 		</div>
 	);
 };

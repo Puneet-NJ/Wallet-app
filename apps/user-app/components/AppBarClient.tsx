@@ -8,9 +8,9 @@ export default function () {
 	const router = useRouter();
 	const path = usePathname();
 
-	if (path === "/signin") return;
+	if (path === "/signin") return null; // Fixed null return
 	return (
-		<div className="w-full">
+		<div className="w-full sticky top-0 z-50">
 			<Appbar
 				user={session?.data?.user}
 				signIn={() => signIn()}
