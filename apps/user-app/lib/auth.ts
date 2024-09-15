@@ -62,7 +62,7 @@ export const authOptions = {
 					await tx.balance.create({
 						data: {
 							userId: createdUser.id,
-							amount: 0,
+							amount: 0 * 100,
 						},
 					});
 

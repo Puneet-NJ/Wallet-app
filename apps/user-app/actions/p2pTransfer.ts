@@ -50,7 +50,7 @@ export default async function (phone: number, amount: number) {
 			},
 			data: {
 				amount: {
-					decrement: amount,
+					decrement: amount * 100,
 				},
 			},
 		});
@@ -61,14 +61,14 @@ export default async function (phone: number, amount: number) {
 			},
 			data: {
 				amount: {
-					increment: amount,
+					increment: amount * 100,
 				},
 			},
 		});
 
 		await tx.p2pTransfers.create({
 			data: {
-				amount,
+				amount: amount * 100,
 				time: new Date(),
 				fromId: Number(fromUser),
 				toId: toUser,

@@ -25,7 +25,7 @@ export default function ({ transactions }: Props) {
 							</div>
 						</div>
 
-						<div className="font-medium">₹{txn.amount}</div>
+						<div className="font-medium">₹{txn.amount / 100}</div>
 					</div>
 				))}
 			</div>

@@ -36,7 +36,7 @@ export default async function () {
 					</div>
 
 					<div className="font-medium">
-						{id === transfer.toId ? "+" : "-"} ₹{transfer.amount}
+						{id === transfer.toId ? "+" : "-"} ₹{transfer.amount / 100}
 					</div>
 				</div>
 			))}

@@ -33,7 +33,7 @@ app.post("/", async (req, res) => {
 				},
 				data: {
 					amount: {
-						increment: req.body.amount,
+						increment: req.body.amount * 100,
 					},
 				},
 			}),

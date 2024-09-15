@@ -15,7 +15,7 @@ export default async function (
 				status: "Processing",
 				provider,
 				startDate: new Date(),
-				amount,
+				amount: amount * 100,
 				userId,
 			},
 		});

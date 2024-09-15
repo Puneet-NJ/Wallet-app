@@ -11,7 +11,7 @@ export default function ({
 		<Card title="Balance">
 			<div className="flex justify-between mx-5 py-3 border-b">
 				<span>Unlocked Balance</span>
-				<span>₹{amount}</span>
+				<span>₹{amount / 100}</span>
 			</div>
 
 			<div className="flex justify-between mx-5 py-3 border-b">
@@ -21,7 +21,7 @@ export default function ({
 
 			<div className="flex justify-between mx-5 py-3 border-b font-bold">
 				<span>Total Balance</span>
-				<span className="text-green-500">₹{amount}</span>
+				<span className="text-green-500">₹{amount / 100}</span>
 			</div>
 		</Card>
 	);
