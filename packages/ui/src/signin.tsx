@@ -31,7 +31,7 @@ export default function () {
 	};
 
 	return (
-		<div className="bg-[rgba(150,150,150,1)] w-1/5 py-10 px-7 flex flex-col gap-3 shadow-xl rounded-lg">
+		<div className="bg-[rgba(150,150,150,1)] w-[80%] md:w-1/5 py-10 px-7 flex flex-col gap-3 shadow-xl rounded-lg">
 			<div className="w-full mb-3">
 				<Logo />
 			</div>

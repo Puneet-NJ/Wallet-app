@@ -87,7 +87,7 @@ export default function () {
 					}}
 				/>
 
-				<div className="mt-3 px-40">
+				<div className="mt-3 px-[10%] 2xl:px-40">
 					<Button onClick={handleAddMoney}>Add Money</Button>
 				</div>
 			</form>

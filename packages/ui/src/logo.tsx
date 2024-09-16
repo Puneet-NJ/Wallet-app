@@ -1,6 +1,4 @@
 export const Logo = ({ className }: { className?: string }) => {
-	console.log(className);
-
 	return (
 		<div
 			className={

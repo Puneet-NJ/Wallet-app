@@ -49,11 +49,11 @@ export default function HomePage() {
 	return (
 		<div className="min-h-screen bg-black text-white">
 			{/* Hero Section */}
-			<section className="relative min-h-screen flex items-center bg-black text-white py-32 border-b border-gray-700 parallax-hero">
+			<section className="relative min-h-screen flex py-[40%] md:items-center bg-black text-white md:py-32 border-b border-gray-700 parallax-hero">
 				<div className="container mx-auto px-4 flex flex-col md:flex-row items-center z-10">
-					<div className="md:w-1/2 text-center md:text-left mx-10">
-						<h1 className="text-6xl font-extrabold mb-4 text-white">
-							<Logo className="text-6xl font-extrabold mb-1 inline-block" /> –
+					<div className="md:w-1/2 text-center md:text-left mx-10  md:mt-0">
+						<h1 className="text-6xl font-extrabold mb-5 text-white">
+							<Logo className="text-6xl font-extrabold mb-1 inline-block" /> -
 							Fast. Secure. Easy.
 						</h1>
 						<p className="text-xl mb-8">
@@ -66,13 +66,10 @@ export default function HomePage() {
 							</div>
 						</Link>
 					</div>
-					<div className="md:w-1/2 mt-10 md:mt-0">
-						{/* <Logo className="w-full h-auto text-white" /> */}
-					</div>
 				</div>
 
 				{/* Decorative elements */}
-				<div className="absolute top-0 left-0 w-40 h-40 bg-white rounded-full opacity-20 animate-bounce-more z-0"></div>
+				<div className="absolute top-0 md:top-0 left-0 w-40 h-40 bg-white rounded-full opacity-20 animate-bounce-more z-0"></div>
 				<div className="absolute bottom-0 right-0 w-60 h-60 bg-gray-300 rounded-full opacity-30 animate-bounce-more delay-200 z-0"></div>
 			</section>
 

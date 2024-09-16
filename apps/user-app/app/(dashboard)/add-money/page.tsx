@@ -45,7 +45,7 @@ export default async function () {
 
 	return (
 		<div className="p-10 w-full">
-			<h1 className="text-4xl font-semibold text-blue-600">Add Money</h1>
+			<h1 className="text-4xl font-semibold text-blue-600 mt-4">Add Money</h1>
 
 			<div className="my-10 grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
 				<div>
