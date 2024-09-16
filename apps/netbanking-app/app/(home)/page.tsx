@@ -3,7 +3,6 @@
 import { useSearchParams } from "next/navigation";
 import { InputBox } from "@repo/ui/input-box";
 import { Button } from "@repo/ui/button";
-import { Appbar } from "@repo/ui/appbar";
 import axios from "axios";
 
 export default function () {
@@ -18,22 +17,20 @@ export default function () {
 	) => {
 		e.preventDefault();
 
-		const { userId, amount } = JSON.parse(atob(token?.split(".")[1] || ""));
-
-		const walletWebhook = await axios({
+		const res = await axios({
+			url: "http://localhost:3003/api/",
 			method: "POST",
-			url: `http://localhost:3005/`,
 			data: {
-				userId,
-				amount,
 				token,
 			},
 		});
 
-		if (walletWebhook.status === 200)
+		if (res.status === 200)
 			alert(
-				walletWebhook.data.msg + ". You can now go back to original website"
+				JSON.stringify(res.data.msg) +
+					". You can now go back to original website"
 			);
+		else alert("Something went wrong!!");
 
 		window.close();
 	};
