@@ -1,81 +1,41 @@
-# Turborepo starter
+# WalletPe
 
-This is an official starter Turborepo.
+A website wherein a user could come and add money to their wallet through netbanking and then could use that money in the wallet to transfer it to their friends.
 
-## Using this example
+## Architecture
 
-Run the following command:
+<img width="817" alt="Screenshot 2024-09-17 at 12 17 08 PM" src="https://github.com/user-attachments/assets/54b7277d-fcee-42c4-8ac0-e14a6a1b602b">
 
-```sh
-npx create-turbo@latest
-```
+## How does Adding Money to your wallet work
 
-## What's inside?
+1. We have our main website of WalletPe through which the user can interact. Hence, when user chooses to add money to his wallet, a request with data is first sent to a bank-api which will generate a token out of it and gives to back as response.
+2. The WalletPe website then updates the database saying an on ramp transaction is initiated and hence an entry is made in onRampTxn table with status set to "Processing" and then the token is further sent to netbanking website.
+3. The netbanking website decodes the token to get the data and processes the transaction, and then another token is generated and sent to the <b>WalletPe webhook</b>.
+4. The WalletPe webhook will verify the token(as it will have the secret through which the token was generated) and get all the data and then update the balance and the onRampTransactions table in the database.
 
-This Turborepo includes the following packages/apps:
+### Why WalletPe webhook?
 
-### Apps and Packages
+We could have used our main WalletPe's backend to handle the request coming from netbanking website but we out-sourced it to a webhook, why? Our Backend already handles alot of requests from the user and if we start handling even the transactions/updations the load might increase.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+<img width="1040" alt="Screenshot 2024-09-17 at 12 13 38 PM" src="https://github.com/user-attachments/assets/0b8e9de6-052d-4894-9408-e4b59c139c71">
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## How does Sending Money to your friends work?
 
-### Utilities
+WalletPe backend can make this request. Hence, send a request from WalletPe backend to:
 
-This Turborepo has some additional tools already setup for you:
+1. Deduct x amount from sender.
+2. Add x amount to receiver.
+3. Update transfers table in the database.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+<img width="793" alt="Screenshot 2024-09-17 at 12 22 42 PM" src="https://github.com/user-attachments/assets/2b3962aa-9d4a-45a5-a07f-6f1bad33d51a">
 
-### Build
+## Stack
 
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+- [Next.js](https://nextjs.org/) – Full-stack framework
+- [TypeScript](https://www.typescriptlang.org/) – language
+- [Express.js](https://expressjs.com/) – Backend framework
+- [Tailwind](https://tailwindcss.com/) – CSS
+- [Postgres](https://www.postgresql.org/) – database
+- [NextAuth.js](https://next-auth.js.org/) – auth
+- [Turborepo](https://turbo.build/repo) – monorepo
+- [Zod](https://zod.dev/) – Input validation
