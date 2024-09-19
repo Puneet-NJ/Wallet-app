@@ -3,9 +3,17 @@
 	"version": "1.0.0",
 	"main": "index.js",
 	"scripts": {
+		"start": "npx nodemon dist/index.js",
+		"ts.check": "tsc --project tsconfig.json",
+		"add-build": "git add dist",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "esbuild src/index.ts --bundle --platform=node --target=node18 --outfile=dist/index.js"
+		"build": "rimraf dist && esbuild src/index.ts --bundle --platform=node --target=node18 --outfile=dist/index.js"
 	},
+	"pre-commit": [
+		"ts.check",
+		"build",
+		"add-build"
+	],
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
@@ -20,5 +28,9 @@
 		"express": "^4.21.0",
 		"jsonwebtoken": "^9.0.2",
 		"zod": "^3.23.8"
+	},
+	"devDependencies": {
+		"pre-commit": "^1.2.2",
+		"rimraf": "^6.0.1"
 	}
 }
