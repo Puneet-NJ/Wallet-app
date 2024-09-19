@@ -21,7 +21,7 @@ export default async function () {
 
 	return (
 		<Card title="Recent Transfers">
-			{transfers.map((transfer) => (
+			{transfers.map((transfer: any) => (
 				<div
 					key={transfer.id}
 					className="flex justify-between items-center border-b py-2 mx-5"

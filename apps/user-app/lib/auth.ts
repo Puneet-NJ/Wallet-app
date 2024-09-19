@@ -51,7 +51,7 @@ export const authOptions = {
 					return null;
 				}
 
-				const newUser = await prisma.$transaction(async (tx) => {
+				const newUser = await prisma.$transaction(async (tx: any) => {
 					const createdUser = await tx.user.create({
 						data: {
 							phone: credentials.phone,

@@ -1,8 +1,13 @@
 {
-  "extends": "@repo/typescript-config/react-library.json",
-  "compilerOptions": {
-    "outDir": "dist"
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+	"extends": "@repo/typescript-config/react-library.json",
+	"compilerOptions": {
+		"outDir": "dist",
+		"baseUrl": ".", // Ensure proper base path resolution
+		"paths": {
+			"@repo/next-auth-types/*": ["../next-auth-types/*"] // Add path to next-auth-types
+		},
+		"typeRoots": ["../next-auth-types", "./node_modules/@types"] // Ensure it picks up the type definitions
+	},
+	"include": ["src", "../next-auth-types/**/*.d.ts"], // Make sure it includes the next-auth-types folder
+	"exclude": ["node_modules", "dist"]
 }

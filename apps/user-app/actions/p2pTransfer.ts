@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth";
 
 export default async function (phone: number, amount: number) {
 	const session = await getServerSession(authOptions);
-	const fromUser = session?.user.id;
+	const fromUser = session?.user.id || 1;
 
 	if (amount < 1)
 		return {
@@ -25,7 +25,7 @@ export default async function (phone: number, amount: number) {
 
 	const toUser = receiver.id;
 
-	const response = await prisma.$transaction(async (tx) => {
+	const response = await prisma.$transaction(async (tx: any) => {
 		await tx.$queryRaw`SELECT * FROM "Balance" WHERE "userId" = ${Number(fromUser)} FOR UPDATE`;
 
 		const balance = await tx.balance.findFirst({

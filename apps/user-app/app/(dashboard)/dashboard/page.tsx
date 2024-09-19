@@ -1,7 +1,11 @@
 import { Logo } from "@repo/ui/logo";
 import FeatureCard from "components/FeatureCard";
 import Link from "next/link";
-import { AddMoneyIcon, ManageFinance, TransferIcon } from "../layout";
+import {
+	AddMoneyIcon,
+	ManageFinance,
+	TransferIcon,
+} from "../../../components/Icons";
 import TestimonialCard from "components/TestimonialCard";
 
 // Import images and SVGs

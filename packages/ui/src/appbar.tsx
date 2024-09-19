@@ -1,5 +1,6 @@
+import { signIn, signOut } from "next-auth/react";
 import { Button } from "./button";
-import { signIn, signOut } from "@repo/next-auth-types/client";
+// import { signIn, signOut } from "@repo/next-auth-types/client";
 
 interface Props {
 	user?: {
@@ -7,7 +8,8 @@ interface Props {
 		phone: string;
 	};
 	signIn: typeof signIn;
-	signOut: typeof signOut;
+	signOut: any;
+	// signOut: typeof signOut;
 	children: React.ReactNode;
 }
 

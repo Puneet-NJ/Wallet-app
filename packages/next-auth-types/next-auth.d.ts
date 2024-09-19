@@ -1,5 +1,5 @@
 import NextAuth from "next-auth";
-import { signIn, signOut } from "next-auth/react";
+// import { signIn, signOut } from "next-auth/react";
 
 declare module "next-auth" {
 	interface User {
@@ -22,5 +22,5 @@ declare module "next-auth/jwt" {
 	}
 }
 
-export const signIn = signIn;
-export const signOut = signOut;
+// export const signIn = signIn;
+// export const signOut = signOut;

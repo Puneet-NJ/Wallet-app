@@ -1,4 +1,4 @@
-import { TransferIcon } from "@/(dashboard)/layout";
+import { TransferIcon } from "./Icons";
 
 export default function ({
 	title,

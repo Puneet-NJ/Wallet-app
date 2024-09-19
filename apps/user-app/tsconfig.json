@@ -1,18 +1,17 @@
 {
 	"extends": "@repo/typescript-config/nextjs.json",
 	"compilerOptions": {
-		"baseUrl": ".",
-		"plugins": [
-			{
-				"name": "next"
-			}
-		],
-		"paths": {
-			"@types/*": ["../../packages/next-auth-types/*"],
-			"@/*": ["./app/*"]
-		},
-		"typeRoots": ["../../packages/next-auth-types"],
-		"types": ["@repo/next-auth-types"]
+		"module": "esnext",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": "."
+		// "paths": {
+		// 	"@repo/next-auth-types/*": ["../../packages/next-auth-types/*"]
+		// },
+		// "typeRoots": ["../../packages/next-auth-types", "./node_modules/@types"],
+		// "types": ["@repo/next-auth-types"]
 	},
 	"include": [
 		"../../packages/next-auth-types/**/*.d.ts",
