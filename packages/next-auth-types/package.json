@@ -1,0 +1,10 @@
+{
+	"name": "@repo/next-auth-types",
+	"version": "1.0.0",
+	"dependencies": {
+		"next-auth": "^4.24.7"
+	},
+	"exports": {
+		"./client": "./next-auth.d.ts"
+	}
+}
