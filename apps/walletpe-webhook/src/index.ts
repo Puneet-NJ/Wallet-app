@@ -95,4 +95,4 @@ app.post("/", async (req, res) => {
 	}
 });
 
-app.listen(3005);
+export default app;

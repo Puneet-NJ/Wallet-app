@@ -39,4 +39,4 @@ app.post("/axis", (req, res) => {
 	res.json({ token });
 });
 
-app.listen(3002);
+export default app;
