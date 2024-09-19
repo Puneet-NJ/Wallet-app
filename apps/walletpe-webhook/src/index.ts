@@ -19,6 +19,10 @@ interface VerifiedToken {
 	bankToken: string;
 }
 
+app.get("/", async (req, res) => {
+	res.json({ msg: "Hi" });
+});
+
 app.post("/", async (req, res) => {
 	try {
 		if (!req.headers.authorization || !process.env.JWT_PASSWORD)
