@@ -12,11 +12,11 @@ import { useState } from "react";
 const banks = [
 	{
 		name: "HDFC Bank",
-		url: "http://localhost:3002/hdfc",
+		url: "https://wallet-app-bank-webhook.vercel.app/hdfc",
 	},
 	{
 		name: "Axis Bank",
-		url: "http://localhost:3002/axis",
+		url: "https://wallet-app-bank-webhook.vercel.app/axis",
 	},
 ];
 
